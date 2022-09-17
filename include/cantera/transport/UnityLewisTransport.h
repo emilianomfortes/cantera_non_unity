@@ -55,7 +55,7 @@ public:
      */
     virtual void getMixDiffCoeffs(double* const d) {
         double Dm = thermalConductivity() / (m_thermo->density() * m_thermo->cp_mass());
-        int arr[53] ={
+        int Le_i[53] ={
             0.27443569898605347,
             0.15385763347148895,
             0.5543738603591919,
@@ -111,7 +111,7 @@ public:
         1.2404004335403442,
         };
         for (size_t k = 0; k < m_nsp; k++) {
-            d[k] = Dm;
+            d[k] = Dm / Le_i[k];
         }
     }
 
